@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aroha | Jobs</title>
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="main" rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/icons.css">
+    <link rel="stylesheet" type="text/css" href="static/css/owl.css">
+    <link rel="stylesheet" type="text/css" href="static/css/prettyPhoto.css">
+    <link href="static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/animate.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="static/img/favico.png" />
+    <style type="text/css">
+        body {
+            /*padding-top: 30px;*/
+        }
+        
+        nav a {
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+            font-size: 18px;
+        }
+        
+        nav .navbar-toggle {
+            margin: 13px 15px 13px 0;
+        }
+        
+        .navbar-brand {
+            font-size: 30px;
+        }
+        
+        nav.navbar.shrink {
+            min-height: 10px;
+        }
+        
+        nav.shrink a {
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            font-size: 15px;
+        }
+        
+        nav.shrink .navbar-brand {
+            font-size: 25px;
+        }
+        
+        nav.shrink .navbar-toggle {
+            padding: 4px 5px;
+            margin: 8px 15px 8px 0;
+        }
+    </style>
+    <link rel="stylesheet" href="static/css1/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .overlay {
+            height: 0;
+            width: 100%;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+        
+        .overlay-content {
+            position: relative;
+            top: 25%;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .overlay a:hover,
+        .overlay a:focus {
+            color: #f1f1f1;
+        }
+        
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+        
+        #sub_job {
+            position: fixed;
+            right: 0;
+            top: 20%;
+            background-color: #65be3e;
+            color: white;
+            padding: 15px 15px;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myNav2" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+
+            <div class="container">
+
+                <p style="color: #4CAF50;
+    font-family: courier;
+    font-size: 160%;">Get Job Alerts from our job portal.Subscribe Now !</p>
+
+                <form class="form-inline" action="/subscription" method="POST">
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                    </div>
+                    <div class="form-group">
+
+                    </div>
+                    <div class="checkbox">
+
+                    </div>
+                    <button type="submit" class="btn btn-success">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <span style="font-size:30px;cursor:pointer" id="sub_job" onclick="openNav()">&#9776; </span>
+    <nav class="navbar navbar-default navbar-fixed-top data-spy=" affix " data-offset-top="100 "" style="background-color: #ffffff; ">
+        <div class="container">
+            <div class="navbar-top text-right">
+
+            </div>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-ellipsis-v"></i>
+                </button>
+                <a class="navbar-brand" href="/"><img src="static/img/logo.png" alt=""></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""><a href="https://www.aroha.co.in/">Our Website</a></li>
+                    <li class="active"><a class="btn btn-success" href="/">Jobs at Aroha</a></li>
+                    <!-- <li class=""><a href="index.html">Our Newsletters</a></li> -->
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <section>
+        <div class="container">
+            <div class="row title text-left" >
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                        
+                        {% for category, message in messages %}
+                        <div class="alert {{ category }} center-block" style="width:50%" style="text-align:center">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                            <strong>{{ message }}</strong>
+                        </div>
+                          
+                        {% endfor %}
+                        
+                      {% endif %}
+                    {% endwith %}
+                <h3>Career at Aroha Technologies</h3>
+
+                <p style="padding: 0px 12px ;text-align:justify;">
+                    <blockquote>Company is lead by technical staff to begin with, this way we give importance to technology, not just ROI. Have 12 years of experience in mentoring and empowering employees to make a difference in the ecosystem. In Business world, we were told "In a deal there is always a looser". In Aroha business, everyone who is involved in the deal must be winners in the long run.</blockquote>
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group pull-center">
+                        <input type="text" class="search form-control" placeholder="What you looking for?">
+                    </div>
+                    <span class="counter pull-right" style="color:#4CAF50;font-weight:bold"> </span>
+                    <div class="table-responsive">
+                        <table class="table table-hover  results ">
+                            <thead>
+                                <!-- <tr> -->
+                                <th class="col-md-1 col-xs-1"></th>
+                                <th class="col-md-5 col-xs-5"></th>
+                                <th class="col-md-3 col-xs-3"></th>
+                                <th class="col-md-3 col-xs-3"></th>
+                                <!-- </tr> -->
+                                <tr class="warning no-result">
+                                    <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for job in data |sort(attribute='start_date',reverse = True) %}
+                                <tr>
+                                    <!-- <th scope="row">1</th> -->
+                                    <td><span class="badge">{{ job.id }}</span></td>
+                                    <td>{{ job.title }}
+                                        {% if job.location_name is not none %}
+                                        <br>Location- {{ job.location_name  }}
+                                        {% endif %}
+                                        {% if job.start_date is not none %}
+                                        <br>Date Posted- {{ job.start_date }}
+                                        {% endif %}
+
+                                    </td>
+                                    <!-- <td></td> -->
+                                    <!-- <td>Vatanay Özbeyli</td> -->
+                                    <td>{% if job.employment_type!='Prefer not to select' %}
+                                    Employment- <span class="label label-primary">{{ job.employment_type }}</span>
+                                        <br>
+                                        {% endif %}
+
+                                    {% set list1 = (job.skills).split(',') %}
+                                    {% for i in list1 %}
+                                    <span class="label label-default">{{ i }}</span>
+                                    {% endfor %}</td>
+                                    <td>
+                                        <form name="row_data1" action="/job_details" method="POST">
+
+                                            <button name="job_id" class="btn green submit" value="{{ job.id }}">Apply <i class="fa fa-envelope" aria-hidden="true"></i></button>
+                                            </from>
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-md-3 col-sm-6">
+                <img src="static/img/logo1.png" class="logo-white" alt="">
+                <p></p>
+            </div> -->
+                <div class="col-md-3 col-sm-6 text-left">
+                    <h4 class="heading no-margin">Sitemap</h4>
+                    <hr class="blue">
+                    <div class="col-md-6 no-padding">
+                        <a href="https://www.aroha.co.in/">Our Website</a>
+                        <a href="/">Jobs at Aroha</a>
+                        <!-- <a href="job_search.html#">Post a job</a> -->
+                        <!-- <a href="#">Our Newsletter</a> -->
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6 text-left">
+
+                </div>
+                <!-- <div class="col-md-3 col-sm-6 text-left">
+                    <h4 class="heading no-margin">Sign up for our newsletter</h4>
+                    <hr class="blue">
+                    <p>Know about our work.</p>
+                    <form>
+                        <input type="text" class="form-control" placeholder="Enter your email">
+                        <button type="button" class="btn green no-margin">Subscribe now!</button>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+        <div class="row bottom no-padding no-margin">
+            <div class="container">
+                <div class="col-md-12 no-padding text-left column-bottom">
+                    <p>Copyright &copy; 2017 <span class="blue-color">Aroha Technologies</span> | All right reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/jquery-1.11.1.min.js"></script>
+    <script src="static/js/smoothWheel.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/owl.carousel.js"></script>
+    <script src="static/js/jquery.prettyPhoto.js"></script>
+    <script src="static/js/images-loaded.js"></script>
+    <script src="static/js/jquery.count.js"></script>
+    <script src="static/js/knobify.js"></script>
+    <script src="static/js/isotope.js"></script>
+    <script src="static/js/main.js"></script>
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > 50) {
+                $('nav').addClass('shrink');
+            } else {
+                $('nav').removeClass('shrink');
+            }
+        });
+    </script>
+
+    <script src="static/js/index.js"></script>
+    <script>
+        function openNav() {
+            console.log("COMINg");
+            console.log(document.getElementById("myNav2"));
+            document.getElementById("myNav2").style.height = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav2").style.height = "0%";
+        }
+    </script>
+
+</body>
+
+</html>

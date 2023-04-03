@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aroha | Jobs</title>
+	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link id="main" rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="static/icons.css">
+	<link rel="stylesheet" type="text/css" href="static/css/owl.css">
+	<link rel="stylesheet" type="text/css" href="static/css/prettyPhoto.css">
+	<link href="static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="static/css/animate.css" rel="stylesheet" type="text/css">
+	<link rel="icon" 
+      type="image/png" 
+      href="static/img/favico.png" />
+      <style type="text/css">
+      body {
+  /*padding-top: 30px;*/
+}
+
+nav a {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  font-size: 18px;
+}
+
+nav .navbar-toggle {
+  margin: 13px 15px 13px 0;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+
+
+nav.navbar.shrink {
+  min-height: 10px;
+}
+
+nav.shrink a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 15px;
+}
+
+nav.shrink .navbar-brand {
+  font-size: 25px;
+}
+
+nav.shrink .navbar-toggle {
+  padding: 4px 5px;
+  margin: 8px 15px 8px 0;
+}
+</style>
+
+
+
+      <link rel="stylesheet" href="static/css1/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top data-spy="affix" data-offset-top="100"" style="background-color: #ffffff; ">
+	<div class="container">
+		<div class="navbar-top text-right">
+
+	</div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<i class="fa fa-ellipsis-v"></i>
+			</button>
+			<a class="navbar-brand" href="job_search.html#"><img src="static/img/logo.png" alt=""></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class=""><a  href="https://www.aroha.co.in/">Our Website</a></li>
+				<li class="active"><a  class="btn btn-success"href="index.html">Jobs at Aroha</a></li>
+				<li class=""><a href="index.html">Our Newsletters</a></li>
+				
+				
+				
+				
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<section>
+	<div class="container">
+		<div class="row title text-left">
+			<h3>Career at Aroha Technologies</h3>
+			<p style="padding: 0px 12px ;text-align:justify;"><blockquote >Company is lead by technical staff to begin with, this way we give importance to technology, not just ROI.<br>
+			Have 12 years of experience in mentoring and empowering employees to make a difference in the ecosystem.<br>
+			In Business world, we were told "In a deal there is always a looser". In Aroha business, everyone who is involved in the deal must be winners in the long run.</blockquote></p>
+		</div>
+		<div class="row text-left">
+			<div class="col-md-3">
+				<!-- <input type="text" class="form-control" placeholder="Keyword e.g. (Job Title, Description)"> -->
+			</div>
+			<div class="col-md-3">
+				<input type="text" class="form-control" placeholder="Subscribe to our job alerts">
+			</div>
+			
+			<div class="col-md-3">
+				<a href="job_search.html#" class="btn green submit">Subscribe <i class="fa fa-envelope" aria-hidden="true"></i></a>
+			</div>
+			<div class="col-md-3">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 checks">
+				<!-- <input type="checkbox" id="checkbox1" class="css-checkbox" checked="checked"/><label for="checkbox1">Full Time</label>
+
+				<input type="checkbox" id="checkbox2" class="css-checkbox"/><label for="checkbox2">Part Time</label>
+
+				<input type="checkbox" id="checkbox3" class="css-checkbox" checked="checked"/><label for="checkbox3">Weekend</label>
+
+				<input type="checkbox" id="checkbox4" class="css-checkbox" /><label for="checkbox4">Freelance</label>
+
+				<label for="fader">Distance :</label>
+				<input type="range" min="0" max="100" value="3" id="fader"/>
+				<b><span class="distance">20</span></b> km -->
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group pull-center">
+    <input type="text" class="search form-control" placeholder="What you looking for?">
+</div>
+<span class="counter pull-right" style="color:#4CAF50;font-weight:bold"> </span>
+<div class="table-responsive">
+<table class="table table-hover  results ">
+  <thead>
+    <!-- <tr> -->
+      <th class="col-md-1 col-xs-1"></th>
+      <th class="col-md-5 col-xs-5" ></th>
+      <th class="col-md-3 col-xs-3"></th>
+      <th class="col-md-3 col-xs-3"></th>
+    <!-- </tr> -->
+    <tr class="warning no-result">
+      <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for job in data |sort(attribute='start_date',reverse = True) %}
+    <tr>
+      <!-- <th scope="row">1</th> -->
+      <td><span class="badge">{{ job.id }}</span></td>
+      <td>{{ job.title }}<br>Location- {{ job.location_name }}<br>Date Posted- {{ job.start_date }}</td>
+      <!-- <td></td> -->
+      <!-- <td>Vatanay Özbeyli</td> -->
+      <td>Employment- <span class="label label-success">{{ job.employment_type }}</span><br>Skills - {{ job.required_skills_for_job }}</td>
+      <td>
+      	<form name="row_data1" action="/job_details" method="POST">
+
+      	<button  name="job_id" class="btn green submit" value="{{ job.id }}" >Apply <i class="fa fa-envelope" aria-hidden="true"></i></button>
+      </from>
+
+      </td>
+    </tr>
+    {% endfor %}
+
+
+    
+  </tbody>
+</table>
+</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section-alt1 no-margin">
+	<div class="container">
+		<div class="row owl-clients">
+			<div class="item text-center">
+				<img src="static/img/clients/1.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/2.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/3.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/4.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/1.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/2.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/3.png" class="client" alt="">
+			</div>
+			<div class="item text-center">
+				<img src="static/img/clients/4.png" class="client" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-6">
+				<img src="static/img/logo_white.png" class="logo-white" alt="">
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.</p>
+			</div>
+			<div class="col-md-3 col-sm-6 text-left">
+				<h4 class="heading no-margin">Sitemap</h4>
+				<hr class="blue">
+				<div class="col-md-6 no-padding">
+					<a href="job_search.html#">Home</a>
+					<a href="job_search.html#">Search for jobs</a>
+					<a href="job_search.html#">Post a job</a>
+					<a href="job_search.html#">How it works</a>
+				</div>
+				<div class="col-md-6 no-padding">
+					<a href="job_search.html#">Features</a>
+					<a href="job_search.html#">Privacy Policy</a>
+					<a href="job_search.html#">Terms of use</a>
+					<a href="job_search.html#">Contact us</a>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 text-left">
+				<h4 class="heading no-margin">Twitter Widget</h4>
+				<hr class="blue">
+				<div class="twitter-feed">
+					<p class="no-margin"><strong>@cravious</strong>500 new jobs for freelance graphic designer</p>
+					<p class="muted"># 2 hours ago</p>
+				</div>
+				<div class="twitter-feed">
+					<p class="no-margin"><strong>@cravious</strong>500 new jobs for freelance graphic designer</p>
+					<p class="muted"># 2 hours ago</p>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 text-left">
+				<h4 class="heading no-margin">Sign up for our newsletter</h4>
+				<hr class="blue">
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.</p>
+				<form>
+					<input type="text" class="form-control" placeholder="Enter your email">
+					<button type="button" class="btn blue no-margin">Subscribe now!</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row bottom no-padding no-margin">
+		<div class="container">
+			<div class="col-md-12 no-padding text-left column-bottom">
+				<p>Copyright &copy; <span class="blue-color">Cravious</span> | All right reserved</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+	<script src="static/js/jquery-1.11.1.min.js"></script>
+	<script src="static/js/smoothWheel.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/owl.carousel.js"></script>
+	<script src="static/js/jquery.prettyPhoto.js"></script>
+	<script src="static/js/images-loaded.js"></script>
+	<script src="static/js/jquery.count.js"></script>
+	<script src="static/js/knobify.js"></script>
+	<script src="static/js/isotope.js"></script>
+	<script src="static/js/main.js"></script>
+	<script type="text/javascript">$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('nav').addClass('shrink');
+  } else {
+    $('nav').removeClass('shrink');
+  }
+});</script>
+  
+
+    <script  src="static/js/index.js"></script>
+
+</body>
+</html>

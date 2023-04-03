@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aroha | Jobs</title>
+	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link id="main" rel="stylesheet" type="text/css" href="static/css/style.css">
+	<link rel="stylesheet" type="text/css" href="static/icons.css">
+	<link rel="stylesheet" type="text/css" href="static/css/owl.css">
+	<link rel="stylesheet" type="text/css" href="static/css/prettyPhoto.css">
+	<link href="static/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="static/css/animate.css" rel="stylesheet" type="text/css">
+	<link rel="icon" 
+      type="image/png" 
+      href="static/img/favico.png" />
+<style type="text/css">
+
+
+
+input[type="date"]:not(.has-value):before{
+  color: lightgray;
+  content: attr(placeholder);
+}
+</style>
+
+<style type="text/css">
+
+
+.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+.hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
+.input-block-level{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.btn-file{overflow:hidden;position:relative;vertical-align:middle;}.btn-file>input{position:absolute;top:0;right:0;margin:0;opacity:0;filter:alpha(opacity=0);transform:translate(-300px, 0) scale(4);font-size:23px;direction:ltr;cursor:pointer;}
+.fileupload{margin-bottom:9px;}.fileupload .uneditable-input{display:inline-block;margin-bottom:0px;vertical-align:middle;cursor:text;}
+.fileupload .thumbnail{overflow:hidden;display:inline-block;margin-bottom:5px;vertical-align:middle;text-align:center;}.fileupload .thumbnail>img{display:inline-block;vertical-align:middle;max-height:100%;}
+.fileupload .btn{vertical-align:middle;}
+.fileupload-exists .fileupload-new,.fileupload-new .fileupload-exists{display:none;}
+.fileupload-inline .fileupload-controls{display:inline;}
+.fileupload-new .input-append .btn-file{-webkit-border-radius:0 3px 3px 0;-moz-border-radius:0 3px 3px 0;border-radius:0 3px 3px 0;}
+.thumbnail-borderless .thumbnail{border:none;padding:0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
+.fileupload-new.thumbnail-borderless .thumbnail{border:1px solid #ddd;}
+.control-group.warning .fileupload .uneditable-input{color:#a47e3c;border-color:#a47e3c;}
+.control-group.warning .fileupload .fileupload-preview{color:#a47e3c;}
+.control-group.warning .fileupload .thumbnail{border-color:#a47e3c;}
+.control-group.error .fileupload .uneditable-input{color:#b94a48;border-color:#b94a48;}
+.control-group.error .fileupload .fileupload-preview{color:#b94a48;}
+.control-group.error .fileupload .thumbnail{border-color:#b94a48;}
+.control-group.success .fileupload .uneditable-input{color:#468847;border-color:#468847;}
+.control-group.success .fileupload .fileupload-preview{color:#468847;}
+.control-group.success .fileupload .thumbnail{border-color:#468847;}
+</style>
+
+      <style type="text/css">
+      body {
+ 
+}
+
+nav a {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  font-size: 18px;
+}
+
+nav .navbar-toggle {
+  margin: 13px 15px 13px 0;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
+
+
+nav.navbar.shrink {
+  min-height: 10px;
+}
+
+nav.shrink a {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  font-size: 15px;
+}
+
+nav.shrink .navbar-brand {
+  font-size: 25px;
+}
+
+nav.shrink .navbar-toggle {
+  padding: 4px 5px;
+  margin: 8px 15px 8px 0;
+}
+</style>
+
+
+
+      <link rel="stylesheet" href="static/css1/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top data-spy="affix" data-offset-top="100"" style="background-color: #ffffff; ">
+	<div class="container">
+		<div class="navbar-top text-right">
+
+	</div>
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<i class="fa fa-ellipsis-v"></i>
+			</button>
+			<a class="navbar-brand" href="/"><img src="static/img/logo.png" alt=""></a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class=""><a  href="https://www.aroha.co.in/">Our Website</a></li>
+				<li class="active"><a  class="btn btn-success"href="/">Jobs at Aroha</a></li>
+				<!-- <li class=""><a href="index.html">Our Newsletters</a></li> -->
+				
+				
+				
+				
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+<section class="no-margin no-padding">
+	{% if data %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="row no-margin blog-post">
+					<h4>{{ data.title }}</h4>
+					{% with messages = get_flashed_messages(with_categories=true) %}
+					  {% if messages %}
+					    
+					    {% for category, message in messages %}
+					    <div class="alert {{ category }}">
+					    	<a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+					  		<strong>{{ message }}</strong>
+						</div>
+					      
+					    {% endfor %}
+					    
+					  {% endif %}
+					{% endwith %}
+
+					
+					<div class="info">
+						{% if data.employment_type!='Prefer not to select' %}
+						<a href="#"><i class="fa fa-user"></i> {{ data.employment_type }}</a>
+						{% endif %}
+						{% if data.start_date is not none %}
+						<a href="#"><i class="fa fa-calendar"></i> {{ data.start_date }}</a>
+						{% endif %}
+						{% if data.seniority_level is not none %}
+						<a href="#"><i class="fa fa-level-up"></i> {{data.seniority_level }}</a>
+						{% endif %}
+						{% if data.location_name is not none %}
+						<a href="#"><i class="fa fa-location-arrow"></i> {{ data.location_name }}</a>
+						{% endif %}
+						{% if data.company_description is not none %}
+						<p class="main" style="padding: 0px 12px ;text-align:justify;">{{ data.company_description }}</p>
+						{% endif %}
+ 
+						<h5>Job Description</h5>
+						<p style="padding: 0px 12px ;text-align:justify;">{{ data.description }}</p>
+
+						{% if data.industry is not none %}
+						<h5>Industry</h5>
+						<p>{{ data.industry  }}</p>
+						{% endif %}
+					
+						 {% if data.functional_area is not none %}
+						<h5>Functional Area</h5>
+						<p>{{ data.functional_area }}</p>
+						{% endif %}
+						 
+						<h5>Contact Email</h5>
+						<p id="scr">{{ data.contact_email_address }}</p>
+						 
+						
+					</div>
+					
+					
+						
+						<form class="contact-form" method='POST' enctype = "multipart/form-data" action="/apply" >
+							<h4>Apply here</h4>
+
+							<div class="row">
+								<div class="col-md-4">
+									<input type="text" name="name" minlength="5" class="form-control normal" placeholder="Full Name (Required)" autocomplete="on" required>
+								</div>
+								<div class="col-md-4">
+									<input type="date"  style="height:50px" name="dob" class="form-control normal" placeholder="DOB (Required)  " onchange="this.className=(this.value!=''?'has-value':'')" required>
+								</div>
+								<div class="col-md-4">
+									<input type="number" min="1990" max="2018" step="1" value ="Year of Passing" name="yop" class="form-control normal" placeholder="Year of Passing (Required)" required>
+								</div>
+
+
+								<div class="col-md-4">
+									<input type="email" name="email" class="form-control normal" placeholder="Your Email (Required)" autocomplete="on" required>
+								</div>
+								<div class="col-md-4">
+									<input type="tel" name="tel1" pattern="[789][0-9]{9}" class="form-control normal" placeholder="Your Contact number (Required)" autocomplete="on" required>
+								</div>
+								<div class="col-md-4">
+									<input type="tel" name="tel2" pattern="[789][0-9]{9}" class="form-control normal" autocomplete="on" placeholder="Alt-Contact number (Optional)" >
+								</div>
+
+
+								<div class="col-md-4">
+								<input type="text" name="u_name" class="form-control normal" placeholder="Last studied University name (Required)" autocomplete="on" required>
+								</div>
+								<div class="col-md-4">
+									<input type="number" name="exp" min="0" max="30" step="1" value ="Total Experiance" class="form-control normal" placeholder="Total Experiance (Required)" required>
+								</div>
+
+								<div class="col-md-4">
+									<input type="text" name="ref_name" class="form-control normal" autocomplete="on" placeholder=" Referral Name (Optional)" >
+								</div>
+
+								<div class="col-md-4">
+									 <div class="fileupload fileupload-new" data-provides="fileupload">
+								    <span class="btn btn-primary btn-file"><span class="fileupload-new">Select file</span>
+								    <span class="fileupload-exists">Change</span>         <input type="file" name = "file" required/></span>
+								    <span class="fileupload-preview"></span>
+								    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+								  </div>
+								</div>
+
+
+								<div class="col-md-12">
+									<textarea class="form-control normal" name="message" placeholder="Your cover letter presents your intentions, qualifications, and availability to a prospective employer in a succinct, appealing format. It's your first chance to make a great impression, a personalized letter indicates you are serious about your job search." rows="10" rows=11 cols=50 maxlength=250 ></textarea>
+								</div>
+								<div class="col-md-4">
+									<input type="hidden" name="job_id" class="form-control normal" value="{{ data.id }}">
+								</div>
+								<button class="btn blue pull-right" type="submit">Apply<i class="fa fa-arrow-right"></i></button>
+							</div>
+						</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<a href="/" class="btn btn-btn-primary no-margin">All Jobs</a>
+				
+				<div class="row no-margin">
+					<h4>Aroha Careers</h4>
+					
+					<a href="#scr" class="btn green no-margin">Apply for this job</a>
+				</div>
+				<div class="row no-margin">
+					<h4>Skills</h4>
+					<ul class="list">
+						{% set list1 = (data.skills).split(',') %}
+						{% for i in list1 %}
+						<li>{{ i }}</li>
+						{% endfor %}
+				        
+					</ul>
+				</div>
+				
+			</div>
+			
+		</div>
+	</div>
+	{% endif %}
+</section>
+
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<!-- <div class="col-md-3 col-sm-6">
+				<img src="static/img/logo1.png" class="logo-white" alt="">
+				<p></p>
+			</div> -->
+			<div class="col-md-3 col-sm-6 text-left">
+				<h4 class="heading no-margin">Sitemap</h4>
+				<hr class="blue">
+				<div class="col-md-6 no-padding">
+					<a href="https://www.aroha.co.in/">Our Website</a>
+					<a href="/">Jobs at Aroha</a>
+					<!-- <a href="job_search.html#">Post a job</a> -->
+					<!-- <a href="#">Our Newsletter</a> -->
+				</div>
+				
+			</div>
+			<div class="col-md-3 col-sm-6 text-left">
+				
+			</div>
+			<!-- <div class="col-md-3 col-sm-6 text-left">
+				<h4 class="heading no-margin">Sign up for our newsletter</h4>
+				<hr class="blue">
+				<p>Know about our work.</p>
+				<form>
+					<input type="text" class="form-control" placeholder="Enter your email">
+					<button type="button" class="btn green no-margin">Subscribe now!</button>
+				</form>
+			</div> -->
+		</div>
+	</div>
+	<div class="row bottom no-padding no-margin">
+		<div class="container">
+			<div class="col-md-12 no-padding text-left column-bottom">
+				<p>Copyright &copy; 2017 <span class="blue-color">Aroha Technologies</span> | All right reserved</p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+
+
+
+	<script src="static/js/jquery-1.11.1.min.js"></script>
+	<script src="static/js/smoothWheel.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/owl.carousel.js"></script>
+	<script src="static/js/jquery.prettyPhoto.js"></script>
+	<script src="static/js/images-loaded.js"></script>
+	<script src="static/js/jquery.count.js"></script>
+	<script src="static/js/knobify.js"></script>
+	<script src="static/js/isotope.js"></script>
+	<script src="static/js/main.js"></script>
+	<script type="text/javascript">$(window).scroll(function() {
+  if ($(document).scrollTop() > 50) {
+    $('nav').addClass('shrink');
+  } else {
+    $('nav').removeClass('shrink');
+  }
+});</script>
+  
+
+    <script  src="static/js/index.js"></script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+    // Handler for .ready() called.
+    $('button').click(function () {
+        $('html, body').animate({
+            scrollTop: $('#what').offset().top
+        }, 'slow');
+    });
+});
+</script>
+<script type="text/javascript">
+!function(e){var t=function(t,n){this.$element=e(t),this.type=this.$element.data("uploadtype")||(this.$element.find(".thumbnail").length>0?"image":"file"),this.$input=this.$element.find(":file");if(this.$input.length===0)return;this.name=this.$input.attr("name")||n.name,this.$hidden=this.$element.find('input[type=hidden][name="'+this.name+'"]'),this.$hidden.length===0&&(this.$hidden=e('<input type="hidden" />'),this.$element.prepend(this.$hidden)),this.$preview=this.$element.find(".fileupload-preview");var r=this.$preview.css("height");this.$preview.css("display")!="inline"&&r!="0px"&&r!="none"&&this.$preview.css("line-height",r),this.original={exists:this.$element.hasClass("fileupload-exists"),preview:this.$preview.html(),hiddenVal:this.$hidden.val()},this.$remove=this.$element.find('[data-dismiss="fileupload"]'),this.$element.find('[data-trigger="fileupload"]').on("click.fileupload",e.proxy(this.trigger,this)),this.listen()};t.prototype={listen:function(){this.$input.on("change.fileupload",e.proxy(this.change,this)),e(this.$input[0].form).on("reset.fileupload",e.proxy(this.reset,this)),this.$remove&&this.$remove.on("click.fileupload",e.proxy(this.clear,this))},change:function(e,t){if(t==="clear")return;var n=e.target.files!==undefined?e.target.files[0]:e.target.value?{name:e.target.value.replace(/^.+\\/,"")}:null;if(!n){this.clear();return}this.$hidden.val(""),this.$hidden.attr("name",""),this.$input.attr("name",this.name);if(this.type==="image"&&this.$preview.length>0&&(typeof n.type!="undefined"?n.type.match("image.*"):n.name.match(/\.(gif|png|jpe?g)$/i))&&typeof FileReader!="undefined"){var r=new FileReader,i=this.$preview,s=this.$element;r.onload=function(e){i.html('<img src="'+e.target.result+'" '+(i.css("max-height")!="none"?'style="max-height: '+i.css("max-height")+';"':"")+" />"),s.addClass("fileupload-exists").removeClass("fileupload-new")},r.readAsDataURL(n)}else this.$preview.text(n.name),this.$element.addClass("fileupload-exists").removeClass("fileupload-new")},clear:function(e){this.$hidden.val(""),this.$hidden.attr("name",this.name),this.$input.attr("name","");if(navigator.userAgent.match(/msie/i)){var t=this.$input.clone(!0);this.$input.after(t),this.$input.remove(),this.$input=t}else this.$input.val("");this.$preview.html(""),this.$element.addClass("fileupload-new").removeClass("fileupload-exists"),e&&(this.$input.trigger("change",["clear"]),e.preventDefault())},reset:function(e){this.clear(),this.$hidden.val(this.original.hiddenVal),this.$preview.html(this.original.preview),this.original.exists?this.$element.addClass("fileupload-exists").removeClass("fileupload-new"):this.$element.addClass("fileupload-new").removeClass("fileupload-exists")},trigger:function(e){this.$input.trigger("click"),e.preventDefault()}},e.fn.fileupload=function(n){return this.each(function(){var r=e(this),i=r.data("fileupload");i||r.data("fileupload",i=new t(this,n)),typeof n=="string"&&i[n]()})},e.fn.fileupload.Constructor=t,e(document).on("click.fileupload.data-api",'[data-provides="fileupload"]',function(t){var n=e(this);if(n.data("fileupload"))return;n.fileupload(n.data());var r=e(t.target).closest('[data-dismiss="fileupload"],[data-trigger="fileupload"]');r.length>0&&(r.trigger("click.fileupload"),t.preventDefault())})}(window.jQuery)
+
+
+</script>
+<script>
+$(document).ready(function () {
+$('input[type=file]').change(function () {
+var val = $(this).val().toLowerCase();
+var regex = new RegExp("(.*?)\.(docx|doc|pdf)$");
+ if(!(regex.test(val))) {
+$(this).val('');
+alert('Please select correct file format');
+} }); });
+</script> 
+
+</body>
+</html>
